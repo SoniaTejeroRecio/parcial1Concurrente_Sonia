@@ -13,20 +13,20 @@ public class BufferCompartido {
 
     public synchronized void producir(String componente) throws InterruptedException {
         while (buffer.size() == capacidad) {
-            wait(); //Espera si el búfer está lleno
+            wait(); // Espera si el búfer está lleno
         }
         buffer.add(componente);
         System.out.println("Producido: " + componente);
-        notifyAll(); //Notifica a los consumidores que pueden consumir
+        notifyAll(); // Notifica a los consumidores que pueden consumir
     }
 
     public synchronized String consumir() throws InterruptedException {
         while (buffer.isEmpty()) {
-            wait(); //Espera si no hay componentes
+            wait(); // Espera si no hay componentes
         }
         String componente = buffer.poll();
         System.out.println("Consumido: " + componente);
-        notifyAll(); //Notifica a los productores que pueden producir
+        notifyAll(); // Notifica a los productores que pueden producir
         return componente;
     }
 }

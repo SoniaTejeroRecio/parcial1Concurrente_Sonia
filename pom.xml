@@ -10,15 +10,8 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <javafx.version>18.0.1</javafx.version>
+        <javafx.version>18.0.1</javafx.version> <!-- Revisa la versión aquí -->
     </properties>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <!-- Dependencias de JavaFX -->
@@ -37,11 +30,15 @@
             <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugin de compilación de Maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -52,7 +49,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin de JavaFX para Maven -->
+            <!-- Plugin para manejar JavaFX en Maven -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -65,7 +62,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.example.GaltonBoard</mainClass> <!-- Asegúrate de que esta clase sea la correcta -->
+                    <mainClass>org.example.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

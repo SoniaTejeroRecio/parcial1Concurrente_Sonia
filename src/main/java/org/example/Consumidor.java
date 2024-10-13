@@ -13,7 +13,7 @@ public class Consumidor extends Thread {
             while (true) {
                 String componente = buffer.consumir();
                 ensamblar(componente);
-                Thread.sleep(1500); //Simula el tiempo de ensamblaje
+                Thread.sleep(1500); // Simula el tiempo de ensamblaje
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
