@@ -17,8 +17,10 @@ public class Productor extends Thread {
             while (true) {
                 buffer.producir(componente);
 
-                // Simula el lanzamiento de una bola en el tablero de Galton
-                galtonBoard.lanzarBola();
+                // Lanzamos la bola desde el centro del tablero
+                javafx.application.Platform.runLater(() -> {
+                    galtonBoard.lanzarBola(); // Llama a la función de lanzar bola
+                });
 
                 Thread.sleep(1000); // Simula el tiempo de producción
             }
